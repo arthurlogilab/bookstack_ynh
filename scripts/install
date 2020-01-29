@@ -113,8 +113,8 @@ ynh_setup_source "$final_path"
 ynh_print_info "Install BookStack composer dependancies"
 
 pushd $final_path || exit
-php -r "readfile('https://getcomposer.org/installer');" | php
-php composer.phar install
+ynh_install_composer
+ynh_composer_exec --commands="install"
 popd || exit
 
 #=================================================
